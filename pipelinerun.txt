@@ -1,0 +1,109 @@
+[init : remove] Removing all files from /workspace/source ...
+
+[clone : clone] + '[' false '=' true ]
+[clone : clone] + '[' false '=' true ]
+[clone : clone] + '[' false '=' true ]
+[clone : clone] + CHECKOUT_DIR=/workspace/output/
+[clone : clone] + '[' true '=' true ]
+[clone : clone] + cleandir
+[clone : clone] + '[' -d /workspace/output/ ]
+[clone : clone] + rm -rf '/workspace/output//*'
+[clone : clone] + rm -rf '/workspace/output//.[!.]*'
+[clone : clone] + rm -rf '/workspace/output//..?*'
+[clone : clone] + test -z
+[clone : clone] + test -z
+[clone : clone] + test -z
+[clone : clone] + git config --global --add safe.directory /workspace/output
+[clone : clone] + /ko-app/git-init '-url=https://github.com/VA-run23/devops-capstone-project.git' '-revision=cd-pipeline' '-refspec=' '-path=/workspace/output/' '-sslVerify=true' '-submodules=true' '-depth=1' '-sparseCheckoutDirectories='
+[clone : clone] {"level":"info","ts":1754651381.0789459,"caller":"git/git.go:176","msg":"Successfully cloned https://github.com/VA-run23/devops-capstone-project.git @ c70e0a01e3ca2ee0c264dcdb847906c35e554c8d (grafted, HEAD, origin/cd-pipeline) in path /workspace/output/"}
+[clone : clone] {"level":"info","ts":1754651381.7627122,"caller":"git/git.go:215","msg":"Successfully initialized and updated submodules in path /workspace/output/"}
+[clone : clone] + cd /workspace/output/
+[clone : clone] + git rev-parse HEAD
+[clone : clone] + RESULT_SHA=c70e0a01e3ca2ee0c264dcdb847906c35e554c8d
+[clone : clone] + EXIT_CODE=0
+[clone : clone] + '[' 0 '!=' 0 ]
+[clone : clone] + git log -1 '--pretty=%ct'
+[clone : clone] + RESULT_COMMITTER_DATE=1754649272
+[clone : clone] + printf '%s' 1754649272
+[clone : clone] + printf '%s' c70e0a01e3ca2ee0c264dcdb847906c35e554c8d
+[clone : clone] + printf '%s' https://github.com/VA-run23/devops-capstone-project.git
+
+[tests : nosetests] ***** Installing dependencies *****
+[tests : nosetests] Requirement already satisfied: pip in /usr/local/lib/python3.9/site-packages (23.0.1)
+[tests : nosetests] Collecting pip
+[tests : nosetests]   Downloading pip-25.2-py3-none-any.whl (1.8 MB)
+[tests : nosetests]     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 27.2 MB/s eta 0:00:00
+[tests : nosetests] Requirement already satisfied: wheel in /usr/local/lib/python3.9/site-packages (0.44.0)
+[tests : nosetests] Collecting wheel
+[tests : nosetests]   Downloading wheel-0.45.1-py3-none-any.whl (72 kB)
+[tests : nosetests]     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.5/72.5 kB 33.7 MB/s eta 0:00:00
+[tests : nosetests] Installing collected packages: wheel, pip
+[tests : nosetests]   Attempting uninstall: wheel
+[tests : nosetests]     Found existing installation: wheel 0.44.0
+[tests : nosetests]     Uninstalling wheel-0.44.0:
+[tests : nosetests]       Successfully uninstalled wheel-0.44.0
+[tests : nosetests]   Attempting uninstall: pip
+[tests : nosetests]     Found existing installation: pip 23.0.1
+[tests : nosetests]     Uninstalling pip-23.0.1:
+[tests : nosetests]       Successfully uninstalled pip-23.0.1
+[tests : nosetests] Successfully installed pip-25.2 wheel-0.45.1
+[tests : nosetests] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[tests : nosetests] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[tests : nosetests] ***** Running nosetests with: -v --with-spec --spec-color
+[tests : nosetests] nose.config: INFO: Ignoring files matching ['^\\.', '^_', '^setup\\.py$']
+[tests : nosetests] nose.plugins.cover: INFO: Coverage report will include only packages: ['service']
+[tests : nosetests]
+[tests : nosetests] service.tests.test_accounts
+[tests : nosetests]   test_create_an_account ... ok
+[tests : nosetests]   test_read_an_account ... ok
+[tests : nosetests]   test_update_an_account ... ok
+[tests : nosetests]   test_delete_an_account ... ok
+[tests : nosetests]
+[tests : nosetests] ----------------------------------------------------------------------
+[tests : nosetests] Ran 4 tests in 3.125s
+[tests : nosetests]
+[tests : nosetests] OK
+[tests : nosetests]
+[tests : nosetests] Name                       Stmts   Miss  Cover
+[tests : nosetests] ------------------------------------------------------
+[tests : nosetests] service/__init__.py           18      0   100%
+[tests : nosetests] service/common/__init__.py     0      0   100%
+[tests : nosetests] service/common/cli_commands.py 7      0   100%
+[tests : nosetests] service/common/error_handlers.py 32    0   100%
+[tests : nosetests] service/common/log_handlers.py 10      0   100%
+[tests : nosetests] service/common/status.py      46      0   100%
+[tests : nosetests] service/config.py             11      0   100%
+[tests : nosetests] service/models.py             69      0   100%
+[tests : nosetests] service/routes.py             56      0   100%
+[tests : nosetests] ------------------------------------------------------
+[tests : nosetests] TOTAL                        249      0   100%
+[tests : nosetests]
+[build : buildah] Step 1/6 : FROM python:3.9-slim
+[build : buildah] Trying to pull python:3.9-slim...
+[build : buildah] Getting image source signatures
+[build : buildah] Copying blob sha256:7f3b8909b0b4ce9e4a81414d9b2e2d83e2d6b38c92a95c47942646d61d8591f2
+[build : buildah] Copying blob sha256:56b0051e60f7b538e12f9b8c6604a439c288594e9f73315a6b0959f6d71b3e70
+[build : buildah] Copying blob sha256:0b074de750ef093a8e9e4369e6b6f7926c459c3a3b01859b15d0831154546591
+[build : buildah] Copying config sha256:456c68e1467406a7f7943d2c640e7d59b20e06000c14b2d86161486d38e07973
+[build : buildah] Writing manifest to image destination
+[build : buildah] Storing signatures
+[build : buildah] Step 2/6 : WORKDIR /app
+[build : buildah] --> Using cache 
+[build : buildah] Step 3/6 : COPY . /app
+[build : buildah] --> Using cache 
+[build : buildah] Step 4/6 : RUN pip install --no-cache-dir -r requirements.txt
+[build : buildah] --> Using cache 
+[build : buildah] Step 5/6 : EXPOSE 80
+[build : buildah] --> Using cache
+[build : buildah] Step 6/6 : CMD ["gunicorn", "--bind", "0.0.0.0:80", "service:app"]
+[build : buildah] --> Using cache 
+[build : buildah] Successfully built c83637e722f4
+[build : buildah] Successfully tagged image-registry.openshift-image-registry.svc:5000/sn-labs-u2023csvarun/accounts:1
+[deploy : openshift-client] deployment "accounts-app" successfully rolled out
+[deploy : openshift-client] service "accounts-app" unchanged
+[deploy : openshift-client] route.route.openshift.io/accounts-app created
+[deploy : openshift-client] deployment "accounts-app" successfully rolled out
+[post-tasks : cleanup] Cleaning up workspace...
+[post-tasks : cleanup] + rm -rf '/workspace/source//*' '/workspace/source//.[!.]*' '/workspace/source//..?*'
+[post-tasks : cleanup] + rm -rf '/workspace/output//*' '/workspace/output//.[!.]*' '/workspace/output//..?*'
+[post-tasks : cleanup] Cleaning up complete.
